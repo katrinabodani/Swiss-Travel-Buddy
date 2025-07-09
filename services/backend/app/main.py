@@ -12,5 +12,5 @@ def health_check():
 
 @app.get("/")
 def index():
-    return {"message": "Hunza Ragbuddy backend is running."}
+    return {"message": "Swiss Ragbuddy backend is running."}
 

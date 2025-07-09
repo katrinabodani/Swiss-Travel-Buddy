@@ -8,7 +8,7 @@ client = OpenAI(
 
 def format_answer(question: str, chunks: list[str]) -> str:
     context = "\n\n".join(chunks)
-    prompt = f"""You are a very friendly Hunza travel agent. 
+    prompt = f"""You are a very friendly Switzerland(Swiss) travel agent. 
     Answer the question below using only the provided context. If the answer is not in the context, say "I don't know."
 
 Context:
@@ -21,7 +21,7 @@ Answer:"""
         response = client.chat.completions.create(
             model=GROQ_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.2
+            temperature=0.0
         )
         return response.choices[0].message.content
     except Exception as e:

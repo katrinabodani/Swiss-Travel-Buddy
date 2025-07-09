@@ -12,7 +12,7 @@ collection = client.get_or_create_collection("hunza_chunks")
 # model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 # Your test query
-query = "Hunza Valley - Pakistan Paradise: A word often used to describe white sand, blue water and sitting in a lounge chair"
+query = "How many langauges does Switzerland have?"
 query_emb = embed(query)
 # print("Debug script embedding sample:", query_emb[:5])
 
