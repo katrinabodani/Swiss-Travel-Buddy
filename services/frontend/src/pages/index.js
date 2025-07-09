@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DarkModeToggle from "../components/DarkModeToggle";
 
 export default function Home() {
+  const [swissTime, setSwissTime] = useState("");
   const [question, setQuestion] = useState("");
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -54,68 +55,59 @@ export default function Home() {
   };
 
   return (
-    <div
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat transition-colors"
-      style={{
-        backgroundImage: darkMode
-          ? "url('/bg-dark.jpg')"
-          : "url('/bg.jpg')",
-      }}
-    >
-      {/* Blurry overlay */}
-      <div className="absolute inset-0 bg-white/5 dark:bg-gray-900/20 backdrop-blur-md z-0" />
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors">
+
 
       {/* Content container */}
       <div className="relative z-10">
-        <header className="relative flex items-center justify-center px-6 py-4 shadow bg-white/30 dark:bg-gray-800/70 backdrop-blur-sm shadow-md sticky top-0 z-10 rounded-b-lg">
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-green-700 dark:text-green-300 font-[Inter]">
-            Your Hunza Buddy
+        <header className="relative flex items-center justify-center px-6 py-3 shadow bg-white dark:bg-gray-800/70 backdrop-blur-sm shadow-md sticky top-0 z-10">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-red-700 dark:text-white font-[Inter]">
+            SWISS TRAVEL BUDDY
           </h1>
           <div className="absolute right-6">
             <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           </div>
         </header>
 
-        <main className="flex flex-col justify-between h-[calc(100vh-5rem)] max-w-3xl mx-auto px-4 py-6">
-          <div className="flex-1 overflow-auto space-y-4 pr-1">
-          {history.map((entry, idx) => (
-            <div
+        <main className="flex flex-col justify-between h-[calc(100vh-5rem)] max-w-3xl mx-auto px-3 py-0.1">
+          <div className="flex-1 overflow-auto space-y-4 pr-1 mt-4">
+            {history.map((entry, idx) => (
+              <div
                 key={idx}
                 className={`flex items-center gap-2 w-full ${
-                entry.role === "user" ? "justify-end" : "justify-start"
+                  entry.role === "user" ? "justify-end" : "justify-start"
                 }`}
-            >
+              >
                 {entry.role === "bot" && (
-                <img
+                  <img
                     src="/bot.gif"
                     alt="Bot"
                     className="w-8 h-8 rounded-full"
-                />
+                  />
                 )}
 
                 <div
-                className={`p-3 px-4 rounded-xl text-sm break-words whitespace-pre-wrap max-w-[80%] ${
+                  className={`p-3 px-4 rounded-xl text-sm break-words whitespace-pre-wrap max-w-[80%] ${
                     entry.role === "user"
-                    ? "bg-green-600 text-white self-end"
-                    : "bg-gray-200 dark:bg-gray-800 text-black dark:text-white self-start"
-                }`}
+                      ? "bg-red-600 text-white self-end"
+                      : "bg-gray-200 dark:bg-gray-700 text-black dark:text-white self-start"
+                  }`}
                 >
-                {entry.content}
+                  {entry.content}
                 </div>
 
                 {entry.role === "user" && (
-                <img
+                  <img
                     src="/user-avatar.gif"
                     alt="You"
                     className="w-8 h-8 rounded-full"
-                />
+                  />
                 )}
-            </div>
+              </div>
             ))}
 
-
             {loading && (
-              <div className="mr-auto text-green-500 dark:text-green-300 flex gap-1 px-4 py-2">
+              <div className="mr-auto text-red-500 dark:text-red-300 flex gap-1 px-4 py-2">
                 <span className="animate-bounce">.</span>
                 <span className="animate-bounce delay-100">.</span>
                 <span className="animate-bounce delay-200">.</span>
@@ -134,13 +126,13 @@ export default function Home() {
                   ask();
                 }
               }}
-              placeholder="Need travel help in Hunza? Start typing..."
-              className="w-full p-4 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
+              placeholder="Need travel help in Switzerland? Start typing..."
+              className="w-full p-4 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"
             />
             <button
               onClick={ask}
               disabled={loading}
-              className="mt-2 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-xl disabled:opacity-50 transition"
+              className="mt-2 w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 disabled:opacity-50 transition"
             >
               Ask
             </button>
