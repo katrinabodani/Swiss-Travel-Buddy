@@ -6,7 +6,15 @@ import os
 from urllib.parse import urlparse
 
 # Directory for cleaned text output
-OUTPUT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'data', 'cleaned'))
+OUTPUT_DIR = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        os.pardir,  # scripts/
+        os.pardir,  # project root
+        'data',
+        'cleaned'
+    )
+)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Standard browser headers to avoid bot blocking

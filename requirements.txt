@@ -9,4 +9,5 @@ readability-lxml>=0.8.1  # Main article extraction
 requests>=2.31.0  # HTTP requests
 chromadb==0.4.15  # Vector store
 sentence-transformers>=2.2.2   # Local embedding model
+youtube-transcript-api
 python-dotenv>=1.0.0  # Environment variable management
