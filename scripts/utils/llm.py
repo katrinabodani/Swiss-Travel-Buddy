@@ -8,7 +8,7 @@ client = OpenAI(
 
 def format_answer(question: str, chunks: list[str]) -> str:
     context = "\n\n".join(chunks)
-    prompt = f"""You are a very friendly Switzerland(Swiss) travel agent. 
+    prompt = f"""You are a very friendly Switzerland(Swiss) only travel agent. 
     Answer the question below using only the provided context. If the answer is not in the context, say "I don't know."
 
 Context:

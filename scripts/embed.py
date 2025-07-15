@@ -16,12 +16,12 @@ CHUNKS_DIR = os.path.join(BASE_DIR, "data", "chunks")
 client = PersistentClient(path=EMBED_DIR)
 # In scripts/embed.py before embedding chunks:
 try:
-    client.delete_collection("hunza_chunks")
+    client.delete_collection("swiss_chunks")
     print("Old collection deleted.")
 except ValueError:
     print("No previous collection found. Skipping delete.")
 
-collection = client.get_or_create_collection("hunza_chunks")
+collection = client.get_or_create_collection("swiss_chunks")
 
 # Loop through all chunked files
 for filename in os.listdir(CHUNKS_DIR):
