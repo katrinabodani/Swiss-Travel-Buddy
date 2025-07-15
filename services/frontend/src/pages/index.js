@@ -155,7 +155,7 @@ export default function Home() {
 
               {/** ——— Updated bubble ——— **/}
               {entry.type === "image" ? (
-                <div className="bg-red-600 self-end rounded-xl p-1 max-w-[60%]">
+                <div className="bg-red-600 self-end rounded-xl p-1 max-w-[50%]">
                   <img
                     src={entry.content}
                     alt="Uploaded"
